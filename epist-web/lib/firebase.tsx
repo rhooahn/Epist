@@ -10,6 +10,13 @@ import {
   collection,
   doc,
   onSnapshot,
+  getDoc,
+  writeBatch,
+  where,
+  query,
+  limit,
+  getDocs,
+  orderBy,
 } from 'firebase/firestore';
 
 const firebaseConfig = {
@@ -36,4 +43,38 @@ export { signInWithPopup, GoogleAuthProvider, signOut } from 'firebase/auth';
 export const firestore_db = getFirestore();
 export const server_timestamp = serverTimestamp();
 export const fromMillis = Timestamp.fromMillis;
-export { increment, collection, doc, onSnapshot };
+export {
+  increment,
+  collection,
+  doc,
+  onSnapshot,
+  getDoc,
+  writeBatch,
+  where,
+  query,
+  limit,
+  getDocs,
+  orderBy,
+};
+
+/// helper functions
+
+/*
+ * Gets a users/{uid} document with username
+ * @param {string} username
+ */
+export async function getUserWithUsername(username) {
+  const usersRef = collection(firestore_db, 'users');
+  const q = query(usersRef, where('username', '==', username), limit(3));
+  const UserDoc = await (await getDocs(q)).docs[0];
+  return UserDoc;
+}
+
+export function postToJSON(doc) {
+  const data = doc.data();
+  return {
+    ...data,
+    createdAt: data.createdAt.toMillis(),
+    updatedAt: data.createdAt.toMillis(),
+  };
+}
