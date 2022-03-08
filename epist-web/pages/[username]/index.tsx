@@ -11,11 +11,19 @@ import {
   getDocs,
   postToJSON,
 } from '../../lib/firebase';
+import Metatags from '../../components/Metatags';
 
 export async function getServerSideProps({ query }) {
   const { username } = query;
 
-  const userDoc = await getUserWithUsername(username);
+  const userDoc = await getUserWithUsername(username); //return null if NA
+
+  if (!userDoc) {
+    return {
+      notFound: true,
+    };
+  }
+
   let user = null;
   let posts = null;
 
@@ -40,8 +48,12 @@ export default function UserProfilePage({ user, posts }) {
 
   return (
     <main>
+      <Metatags
+        title={user.username}
+        description={`${user.username}'s public profile`}
+      />
       <UserProfile user={user} />
-      <PostFeed posts={posts} />
+      <PostFeed posts={posts} admin />
     </main>
   );
 }

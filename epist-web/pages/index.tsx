@@ -76,7 +76,7 @@ export default function Home(props) {
   //children inside Link component direct to the page
   return (
     <main>
-      <PostFeed posts={posts} />
+      <PostFeed posts={posts} admin />
       {!loading && !postsEnd && (
         <button onClick={getMorePosts}>Load more</button>
       )}

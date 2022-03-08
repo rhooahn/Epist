@@ -6,7 +6,7 @@ import { useUserData } from '../lib/hooks';
 
 function MyApp({ Component, pageProps }) {
   const userData = useUserData();
-  console.log('context update');
+  console.log('context update, user data:' + userData.user + userData.username);
   return (
     <>
       <UserContext.Provider value={userData}>

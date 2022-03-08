@@ -1,12 +1,13 @@
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 
-//ui component for main post content
+// UI component for main post content
 export default function PostContent({ post }) {
   const createdAt =
     typeof post?.createdAt === 'number'
       ? new Date(post.createdAt)
       : post.createdAt.toDate();
+
   return (
     <div className="card">
       <h1>{post?.title}</h1>

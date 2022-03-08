@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState, useCallback } from 'react';
-import { SigninContext, UserContext } from '../lib/context';
+import { UserContext } from '../lib/context';
 import debounce from 'lodash.debounce';
 import Loader from '../components/Loader';
 
