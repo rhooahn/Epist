@@ -39,14 +39,12 @@ export default function Enter(props) {
       ) : (
         <SignInButton />
       )}
-
-      <h1>PLACEHOLDER</h1>
     </main>
   );
 }
 
 //Sign in with Google O-auth
-function SignInButton() {
+export function SignInButton() {
   const { user, username } = useContext(UserContext);
 
   const signInWithGoogle = async () => {
@@ -90,7 +88,6 @@ function SignOutButton() {
       >
         Sign Out
       </button>
-      <h1>Sign out State</h1>
     </>
   );
 }

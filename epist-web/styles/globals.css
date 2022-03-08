@@ -59,6 +59,23 @@ code {
   overflow-x: scroll;
 }
 
+/* Div */
+div.pretty {
+  position: fixed;
+  width:400px;
+  height:200px;
+  top: 20%;
+  left: 40%;
+  margin-top: -100px;
+  margin-left: -100px;
+  border-bottom-width:1px;
+  border-top-width:1px;
+  border-right-width:1px;
+  border-left-width:1px;
+
+  text-align:center;
+}
+
 /* Navbar */
 
 .navbar {
@@ -151,10 +168,13 @@ button.btn-green {
 button.btn-google {
   background-color: white;
   color: var(--color-text);
+  border: 2px solid var(--color-gray); /* Green */
+
 }
 
 .btn-google img {
   width: 30px;
+  height: 25px;
   margin-right: 10px;
 }
 
@@ -164,6 +184,17 @@ button.btn-logo {
   text-transform: uppercase;
   font-size: 1.5rem;
   padding: 0.5rem 1rem;
+}
+
+button.btn-fallback {
+  position:relative;
+   top: 50%;
+   transform: translateY(-50%);
+   background: linear-gradient(90deg, #FCF1B2 0%, #F8E2C8 12.5%, #F4C5C1 22.92%, #EEC2EA 40.63%, #C0C8F9 58.85%, #C9F2FC 75%, #CDFBD1 84.37%, #E7FCC5 100%);
+border: 4px solid #000000;
+box-sizing: border-box;
+border-radius: 8px;
+
 }
 
 /* Cards */
@@ -260,3 +291,4 @@ input[type="file"] {
 }
 
 .hidden { display:  none; }
+
