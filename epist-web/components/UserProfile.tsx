@@ -1,4 +1,5 @@
 export default function UserProfile({ user }) {
+  console.log(user.uid);
   return (
     <>
       <div className="box-center">
