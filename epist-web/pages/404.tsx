@@ -1,7 +1,11 @@
 import Link from 'next/link';
+import { useContext } from 'react';
+import AuthCheck from '../components/AuthCheck';
+import { UserContext } from '../lib/context';
 
 export default function Custom404() {
-  return (
+  const { user, username } = useContext(UserContext);
+  return username ? (
     <main>
       <h1>404 - That page does not seem to exist...</h1>
       <iframe
@@ -14,6 +18,10 @@ export default function Custom404() {
       <Link href="/">
         <button className="btn-blue">Go home</button>
       </Link>
+    </main>
+  ) : (
+    <main>
+      <AuthCheck />
     </main>
   );
 }

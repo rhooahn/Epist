@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { useContext } from 'react';
 import { UserContext } from '../lib/context';
 import { SignInButton } from '../pages/enter';
+import AuthCheck from './AuthCheck';
 
 // Top navbar
 export default function Navbar() {
@@ -35,14 +36,14 @@ export default function Navbar() {
         {/* user is not signed OR has not created username */}
         {!user && (
           <>
-            {/* <li>
+            <li>
               <Link href="/enter">
                 <button className="btn-blue">Log in</button>
               </Link>
-            </li> */}
-            <li>
-              <SignInButton />
             </li>
+            {/* <li>
+              <SignInButton />
+            </li> */}
           </>
         )}
       </ul>
